@@ -1,0 +1,6 @@
+name: kenny
+channels:
+  conda -forger
+  -bioconda
+dependencies:
+python = Python 3.12.0
