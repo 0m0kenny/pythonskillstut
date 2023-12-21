@@ -208,12 +208,26 @@ eg isinstance() function - this determines if an object is of a certain data typ
 x = 200
 print(isinstance(x,int)) #checks if x is an interger and returns true or false
 
+#Python Operators
+'''to perform operations on variables & values'''
+x + 3 #arithmetic operators- +, -, = etc
 
+x += 3  #Assignment operators - assign values to variables - =, >>=, etc
+x = x + 3 
 
+x == 3 # comparisom operators - compare values - !=, >, >= etc
 
+x < 5 and x > 10 # logical operators - to combine conditional statements - not, or etc
 
+x = 'apple'
+y = 'apple'
+z = x
+print(x is z) #identity operators - eg is, is not (returns boolean)- compare objects not if they are equal (use == for this) but if they are the same
 
+x = ['apple', 'banana']
+print('banana' in x) #membership operators- eg in, not in (returns boolean) - check if a sequence is presented in an object
 
+print(6 & 3) #bitewise operators - compare binary numbers 
 
 
 
