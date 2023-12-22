@@ -369,7 +369,7 @@ use .copy() or list()'''
 n = k.copy() #copys the lists into a new list n
 print(n)
 
-p = list(k) #gives error but works on w3schools
+p = list(k)
 print(p)
 
 n = k #this can also copy but will be a reference and any changes made to k list will also be made to n
@@ -397,20 +397,48 @@ animal = tuple(('dog', 'cat', 'pig')) #can use tuple() function to make a tuple 
 
 '''can access tuple like list using index, search (in), for loop, while loop etc'''
 
-'''Tuple unchangeable but theres a way change it, 
-need to convert to a list, change then convert back to tuple'''
-animal2 = list(animal)
-animal2[1] = 'lion'
-animal = tuple(animal2)
+'''can add tuple to a tuple'''
+human = ('man', 'woman', 'boy', 'girl') #new tuple
+animal += human #use += to add human tuple to animal tuple
 print(animal)
 
+t = (1,3,5,7)
+animalno = animal + t #use + to join 2 tuples and make a new tuple
+print(animalno)
 
+multiple = human * 2
+print(multiple)
 
+'''can delete tuple'''
+t = (1,3,5,7)
+print(t)
+del t
+#print(t)
 
+'''Tuple unchangeable but theres a way change it, 
+need to convert to a list, change then convert back to tuple'''
+animal2 = list(animal) #turn tuple into a list
+animal2[1] = 'lion' #change item using index
+animal2.append('goat') #use .append() to add new item to end of list
+animal2.remove('pig') #use .remove to remove an item
+animal = tuple(animal2) #turn the list back into tuple
+print(animal)
 
+'''Packing a tuple -assigning values
+-Unpacking -extract values in tuple back into separate variables'''
+t = (1,3,5,7) #packing
+(h, g, d, w) = t #unpacking - assigns each item in t tuple into variables corresponding to index of each other
+print(h) #assigned to first value
+print(g) #assigned to 2nd value etc
 
+(h, *g) = t #use * to assign the rest of the values into a list
+print(h) 
+print(g) #rest of values in t tuple will be listed as list
 
-
+(h, *g, d) = t #assigns values between first and last as a list
+print(h) 
+print(g)
+print(d) 
 
 
 
