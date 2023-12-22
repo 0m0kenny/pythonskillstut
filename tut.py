@@ -766,7 +766,14 @@ def fun(n): #define a function with n parameter
 double = fun(2) #defines and calls the function as a variable with n argument as 2 so it doubles the unknown no a
 print(double(11)) # calls fun function and defines unknown no/lambda argument as 11 
 
+#Python Arrays
+'''used to store multiple values in one variable
+no builit in support for arrays in python, use lists instead
+need to import Numpy library to work with arrays in python'''
 
+transport = ['car', 'leg', 'bike'] #use list as an array
+print(transport)
+'''access array/list same way as you do list -.append, using index, for loop etc'''
 
 
 
