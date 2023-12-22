@@ -576,13 +576,20 @@ humannames = {'man': 'robert','boy': 'thomas', 'woman': 'roberta', 'girl': 'tabi
 specienames2 = {'animal': animalnames, 'human': humannames} #assign a key to each dictionary (which is the value)
 print(specienames2)
 
-print(specienames['animal']['dog'])
+print(specienames['animal']['dog']) #to access the value of a key in a nested dictionary
 
 
+#IF...ELSE
+'''can write shorthand -Ternary operators or Conditional expressions'''
+if a > b: print('a is grater than b') #short hand if statement, use if not statement for reverse
+print('A') if a > b else print('B')  #short hand if else statement
+print('A') if a > b else print('=') if a == b else print('B') #multiple statememts
 
-
-
-
+'''if statements can't be empty-
+must have action after the if condition
+if not action, need to use the 'pass' statement to prevent error'''
+if a>b:
+    pass
 
 
 
