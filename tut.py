@@ -227,33 +227,171 @@ print(x is z) #identity operators - eg is, is not (returns boolean)- compare obj
 x = ['apple', 'banana']
 print('banana' in x) #membership operators- eg in, not in (returns boolean) - check if a sequence is presented in an object
 
-print(6 & 3) #bitewise operators - compare binary numbers 
+print(6 & 3) #bitewise operators eg &, |, ~, ^ - compare binary numbers (check google)
+
+'''operator precedence
+order in which operators are performed
+(), **(exponention), +x -X ~x, * / // %, + -, << >>, &, ^, |,
+== != etc, not, and, or (comparison, identity & membership operators),
+2 operators with same precedence will be executed left to right'''
+
+#Python Lists
+''''ordered, changeable, allow duplicates, index'''
+a = list((1, 2, 3)) #use list() function to create new list
+print(a)
+print(a[0:2]) #use slice syntax to print range of itens in list
+if 2 in a: #use in to search for item in list
+    print('yes, 2 is in a') 
+
+a[1] = 5 #change value of an item in list
+print(a)
+
+a[0:2] = [6,5] #change range of item in list
+print(a)
+
+a[0:2] = [3,8,7] #insert items in list - can insert more items than ranged
+print(a) 
+
+a[0:2] = [6] #replace multiple items in list with one value
+print(a)
+
+'''insert item without replacing values
+using .insert() function'''
+a.insert(2,6) #.insert(potion index, new value)
+print(a)
+
+'''insert item at end of list
+using .append() function'''
+a.append(6) #.append(new value)
+print(a)
+
+'''insert elements from a different iterable object eg list, tuple, dict, sets etc
+using .extend() function'''
+b = [23,45,56]
+a.extend(b) #.extend(list to insert)
+print(a)
+
+'''removing items using the actual value
+using .remove() function'''
+a.remove(3) #if multiple 3 in list, will remove first occurence.
+print(a)
+
+'''removing items using the index position
+using .pop() function'''
+a.pop(3) #will remove value in 4th position (remeber to count form 0), if no index indicated, last item will be removed
+print(a)
+
+del a[4] #will calue in 5th position
+print(a)
+
+c = [45,46,245,244]
+print(c)
+del c #to remove whole list #print(c) - will bring error, c is not defined
+
+g = ['boy', 'girl']
+print(g)
+g.clear() #to clear content in list
+print(g)
 
 
+''' Looping through List'''
+'''for loop'''
+for x in a: #iterates over each item in list, assign to x and print
+    print(x)
+
+'''for loop using index'''
+for i in range(len(a)): #loop through the length of the list, assign i to each item and print
+    print(a[i]) 
+
+'''while loop using index'''
+i = 0
+while i < len(a): #loop through length of list, assign i to each item, print and add 1 to i,
+    print(a[i])
+    i = i + 1 #once i is grater than the length of list, stop loop
+
+'''use for statement and in operator to search inside a list'''
+
+k = ['Egg', 'butter', 'bag', 'cup']
+f = []
+for x in k: #iterate through all items in k and assign to x
+    if 'u' in x: #each item assigned to x searched letter u
+        f.append(x) #adding any x item assigned from k list containing letter u into the f list
+print(f) 
+
+'''loop using list comprehension
+offers shorter syntax for looping through list 
+syntax - [expression for item in iterable if condition is true]
+-expression -current item/outcome you can manipulate eg print(x)
+-condition- not a filter but a way to manipulate the outcome eg for and if statement etc
+-iterable -list, dict etc'''
+
+[print(x) for x in a]  #shortend version of for loop
 
 
+f = [x for x in k if 'u' in x] #shortened version of using for statement and in operator to search inside a list'
+print(f)  
 
+f = [x.upper() for x in f] #changes all items in f list to upper case
+print(f)  
 
+f = ['wow' for x in f] #sets all items in f list to 'wow'
+print(f)  
 
+f = [x if x != 'cup' else 'orange' for x in k] #replaces one item if present
+print(f) 
 
+'''sorting lists
+using sort() function'''
+k.sort() #sorts alphanumerically in acsending order -capital letters first
+print(k)
 
+k.sort(reverse = True) #sorts alphanumerically in descending order
+print(k)
 
+k.reverse() #reverse order the list not sorting - last item becomes first item
 
+'''can customise sort function
+using keyword argument -key = function'''
+def myfunc4(n):  #function that will return a no to be used to sort the list
+    return abs(n - 50) #sort the list based on how close the item is to 50
+list = [100,34,45,3675]
+list.sort(key = myfunc4) #the keyword argument
+print(list)
 
+'''sort() is case sensitive-
+sorts capitals first 
+use inbuilt keyword function - .sort(key = str.lower) '''
+k.sort(key = str.lower) #sorts alphanumerically in ascending order regardless of case
+print(k)
 
+'''copying lists
+use .copy() or list()'''
+n = k.copy() #copys the lists into a new list n
+print(n)
 
+thislist = ["apple", "banana", "cherry"]
+mylist = list(thislist)
+print(mylist)
+# p = list(k)
+# print(p)
 
+n = k #this can also copy but will be a reference and any changes made to k list will also be made to n
 
+'''joining lists
+use +, .append() or .extend()'''
+k = ['Egg', 'butter', 'bag', 'cup']
+g = ['boy', 'girl']
+l = [100,34,45,3675]
 
+w = k + g #add both k and g lists into a new list w
+print(w)
 
+for x in k:
+    g.append(x) #for each item in k list, add it to g list
+print(g)
 
+l.extend(k) #extend l list by adding k list to it
+print(l)
 
-
-
-
-
-
-
-
-
-
+'''counting items in list'''
+#print(count(l))
