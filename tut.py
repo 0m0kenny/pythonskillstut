@@ -730,11 +730,17 @@ def my_function(x):
 
 print(my_function(3))
 
-
 '''use the pass statement as normal if the function has no content'''
 
-def tri_recursion(k):
-  if(k > 0):
+
+''''can define a function that can call itself (recursion)
+use to loop through data to reach a result
+careful not to write code that never terminates'''
+'''In this example, tri_recursion() is a function that we have defined to call itself ("recurse"). 
+We use the k variable as the data, which decrements (-1) every time we recurse. 
+The recursion ends when the condition is not greater than 0 (i.e. when it is 0).'''
+def tri_recursion(k): 
+  if(k > 0):  
     result = k + tri_recursion(k - 1)
     print(result)
   else:
@@ -743,6 +749,22 @@ def tri_recursion(k):
 
 print("\n\nRecursion Example Results")
 tri_recursion(6)
+
+#Python Lambda
+'''lambda function -small anonymous function
+-can take multiple arguments but can only have one expression'''
+'''lambda syntax- lambda arguments: expression'''
+x = lambda a : a + 10 #adds argument a to 10
+print(x(5)) #argument a is 5
+
+x = lambda a, b : a + b
+print(x(5, 6)) #argument a, b
+
+'''lambda useful when used as an anonymous function inside another function'''
+def fun(n): #define a function with n parameter
+   return lambda a: a * n #use lambda to multiply unknown no a by function n
+double = fun(2) #defines and calls the function as a variable with n argument as 2 so it doubles the unknown no a
+print(double(11)) # calls fun function and defines unknown no/lambda argument as 11 
 
 
 
