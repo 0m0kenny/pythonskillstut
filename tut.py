@@ -630,13 +630,45 @@ while i < 6:
 else:
     print('i is no longer < 6')
 
+#For Loop
+    '''iterate over a sequence - list, tuple , dict, string, set
+    executes a set of statements once for each item in the sequence
+    indexing variable not needed beforehand'''
+letters = ["a", "b", "c", 'd']
+
+for x in letters: #assign x to all items in letters
+  print(x) #print each item
+  if x == "c": 
+    break #stop printing when x is c
+
+for x in letters: #assign x to all items in letters
+  if x == "c": 
+    break #stop assigning items when x is c
+  print(x) #print items already assigned before x is c
+
+'''use continue and else statements just like in while loops
+-but else statement will not be executed if loop is stopped by a break statement'''
+
+'''to loop through a set of code a set no of times
+use range() function- reteurns a sequence of number by defualt from 0, adding 1 in crements until the number specified'''
+
+for x in range(6): #for loop iterates over numbers 0-5 going up in 1 and prints
+    print(x)
+
+for x in range(2, 8): #for loop iterates over numbers 2-7 and prints
+    print(x)
+
+for x in range(2, 23, 3): #for loop iterates over numbers 2-23 going up in 3 and prints
+    print(x)
 
 
-
-
-
-
-
+'''Nested Loops-
+Loop inside loop- inner loop will be executed once for each iteration of outer loop'''
+numbers = [2,89,3]
+letters = ["a", "b", "c", 'd']
+for x in numbers:
+    for y in letters:
+        print(x,y)
 
 
 
