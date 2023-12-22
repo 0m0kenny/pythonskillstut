@@ -406,7 +406,7 @@ t = (1,3,5,7)
 animalno = animal + t #use + to join 2 tuples and make a new tuple
 print(animalno)
 
-multiple = human * 2
+multiple = human * 2 #multiplies content of tuple and prints twice
 print(multiple)
 
 '''can delete tuple'''
@@ -440,9 +440,54 @@ print(h)
 print(g)
 print(d) 
 
+#Python Sets
+'''stores multiple items in a single variable
+unordered (can't be accessed by index and printed in random order), 
+unchangeable - but can add/remove items, 
+unindexed, {}, no duplicates- True and 1, False and 0 are also seen as duplicates'''
+
+t = {1,3,1,7, True, False, 0} #duplicate values will be ignored -only one won't be printed
+print(t)
+
+g = set((3,5,6,5)) #can use set() to create a set 
+print(g)
+
+'''uses same functions as list except when indexing as can't access items in set using index
+use for loop and in to search for a value'''
+for x in g:
+    print(x)
+
+print(3 in g) #remember in returns true/ false if value present
+
+'''add items to set using .add() function'''
+g.add(20) #to add items to set
+
+'''add set to another iterable/set
+will exclude duplicates'''
+b = [5,7,8]
+g.update(b) #to add set to another iterable
+print(g)
+
+c = {5,7,4,20,19}
+g.union(c) #joins two sets
+print(g)
+
+g.intersection_update(c) #will only print duplicates present in both sets
+print(g) 
+
+d = g.intersection(c) #create a new set with the duplicate values
+print(d)
+
+g.symmetric_difference_update(c) #will only print duplicates present in both sets
+print(g) 
+
+d = g.symmetric_difference(c) #create a new set with the duplicate values
+print(d)
 
 
-
+'''using .pop() to delete item will delete random item since sets are unindexed'''
+g.pop() #can't add index will give error
+print(g)
 
 
 
