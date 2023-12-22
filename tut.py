@@ -478,10 +478,10 @@ print(g)
 d = g.intersection(c) #create a new set with the duplicate values
 print(d)
 
-g.symmetric_difference_update(c) #will only print duplicates present in both sets
+g.symmetric_difference_update(c) #will only print items not present in both sets- so only present in 1
 print(g) 
 
-d = g.symmetric_difference(c) #create a new set with the duplicate values
+d = g.symmetric_difference(c) #create a new set items not present in both sets- so only present in 1
 print(d)
 
 
@@ -490,29 +490,93 @@ g.pop() #can't add index will give error
 print(g)
 
 
+#Dictionaries
+'''ordered(only in python >3.6), chnageable, no duplicates, stores data values in {key:value} pairs'''
+
+d = dict(a = 'b', goat = False, e = ['f', 'g', 3], o = 2345) #dict constructor. can have different data types in dict
+print(d)
+'''accessing dict values'''
+names = {'dog': 'bobby','cat': 'tommy', 'goat': 'robby', 'cat': 'tabby' }
+print(names['dog']) #Access values using key
 
 
 
+x = names['dog'] #access and store value as a new variable using dict['key']
+q = d.get('a') #Access and store value as a nevalues using .get('key')
+print(x)
+print(q)
+
+print(names['cat']) #value in duplicated key will replace earlier value
+
+print(len(names)) #duplicated keys will be counted as one
+
+x = names.keys() #to return list of all keys 
+v = names.values() #to return list of all values
+print(x) #x variable will be updated if dict is edited
+print(v) #v variable will be updated if dict is edited
+
+'''to edit key/values dictionary'''
+names['lion'] = 'milly' #to add new key value pair
+names['goat'] = 'cooly' #to change value of a key
+names.update({'dog': 'penny'}) #to change key value
+print(x) #prints updated keys
+print(v) #prints updated values
 
 
+'''to return each key value pair in dict as a tuple
+use .items()'''
+x = names.items() #changes made to dict will also be updated in x
+print(x)
 
+'''use in to search for key in dict'''
+if 'dog' in names:
+    print('yes')
 
+'''removing items in dict
+use del and .clear() as normal'''
+names.pop('dog') #removes key
+names.popitem() #removes last key/value pair (item)
+del names['cat'] #removes key
+print(names)
 
+'''for loop in a dictionary returns the keys not the values'''
+names = {'dog': 'bobby','cat': 'tommy', 'goat': 'robby', 'cat': 'tabby' }
+for x in names: #assign all keys to x and print
+    print(x)
 
+for x in names.keys(): #or use .keys() to access keys
+    print(x) 
 
+for x in names: 
+    print(names[x]) #use x as index to print all values
 
+for x in names.values(): #or .values() this to access values
+    print(x) 
 
+for x,y in names.items(): #or use .items to access key value pairs
+    print(x,y) 
 
+'''to copy dictionary
+use .copy() or dict(dictname)'''
+x = names.copy()
+print(x)
 
+x = dict(names)
+print(x)
 
+'''Nested dictionaries - dictionary containing a dictionary
+create at once or make multiple dicts and combine'''
 
+specienames = {'animal' :{'dog': 'bobby','cat': 'tommy', 'goat': 'robby', 'cat': 'tabby' }, #dictionary within a dictionary
+               'human' :{'man': 'robert','boy': 'thomas', 'woman': 'roberta', 'girl': 'tabitha' }}
 
+animalnames = {'dog': 'bobby','cat': 'tommy', 'goat': 'robby', 'cat': 'tabby' }
+humannames = {'man': 'robert','boy': 'thomas', 'woman': 'roberta', 'girl': 'tabitha'}
 
+specienames2 = {'animal': animalnames, 'human': humannames} #assign a key to each dictionary (which is the value)
+print(specienames2)
 
-
-
-
-
+print(specienames['animal']['dog'])
 
 
 
