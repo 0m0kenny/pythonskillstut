@@ -589,13 +589,46 @@ print('A') if a > b else print('=') if a == b else print('B') #multiple statemem
 must have action after the if condition
 if not action, need to use the 'pass' statement to prevent error'''
 if a>b:
-    pass
+    pass #no output
+
+#While Loops
+'''executes a set of statements as long as the condition is true'''
+'''while loop to check if i is less than 6, if its true,, print i which has been initially set to 1, 
+then add 1 to i (incrementing i- is important to give an end point otherwise the while loop will go on forever as i will always be 1 which will always be less than 6),
+i is now 2, recheck if i which is now 2 is less than 6, if true repeat process adding 1 each time until i is no longer less than 6.
+at this point, the while loop stops'''
+i = 1 #while loop requires relevant variables to be ready -define an indexing variable (i) and assign to a value (1)
+while i < 6: #checking if i is less than 6
+    print(i) #prints i if it is less than 6 in each iteration
+    i+=1 #add 1 to i and go back to while loop to recheck
+
+'''to stop while statement even if condition is true
+use the 'break' statement with a condition of when to stop'''
+i = 1 
+while i <6:
+    print(i)
+    if i == 3: #adds a condition that stops the while loop
+        break 
+    i+=1
+
+'''to stop skip and iteration next
+use 'continue' statement with a condition of when to skip'''
+i = 0 
+while i < 6:
+    i += 1
+    if i == 3: #adds a condition that to be skipped -so when i is 3 you start the loop again without printing 3
+        continue
+    print(i)
 
 
-
-
-
-
+'''to run a block of code once when the condition is no longer true
+use 'else' statement with an action'''
+i = 1 
+while i < 6: 
+    print(i) 
+    i+=1
+else:
+    print('i is no longer < 6')
 
 
 
