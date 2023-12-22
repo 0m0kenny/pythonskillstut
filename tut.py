@@ -354,9 +354,9 @@ k.reverse() #reverse order the list not sorting - last item becomes first item
 using keyword argument -key = function'''
 def myfunc4(n):  #function that will return a no to be used to sort the list
     return abs(n - 50) #sort the list based on how close the item is to 50
-list = [100,34,45,3675]
-list.sort(key = myfunc4) #the keyword argument
-print(list)
+number = [100,34,45,3675]
+number.sort(key = myfunc4) #the keyword argument
+print(number)
 
 '''sort() is case sensitive-
 sorts capitals first 
@@ -369,11 +369,8 @@ use .copy() or list()'''
 n = k.copy() #copys the lists into a new list n
 print(n)
 
-thislist = ["apple", "banana", "cherry"]
-mylist = list(thislist)
-print(mylist)
-# p = list(k)
-# print(p)
+p = list(k) #gives error but works on w3schools
+print(p)
 
 n = k #this can also copy but will be a reference and any changes made to k list will also be made to n
 
@@ -393,5 +390,100 @@ print(g)
 l.extend(k) #extend l list by adding k list to it
 print(l)
 
-'''counting items in list'''
-#print(count(l))
+#Tuples
+'''ordered, unchangeable (can't add/remove items), in (), allow duplicates''',
+k = ('dog',) #needs comma even if its just one item otherwise the tuple will be classed as a string'''
+animal = tuple(('dog', 'cat', 'pig')) #can use tuple() function to make a tuple too
+
+'''can access tuple like list using index, search (in), for loop, while loop etc'''
+
+'''Tuple unchangeable but theres a way change it, 
+need to convert to a list, change then convert back to tuple'''
+animal2 = list(animal)
+animal2[1] = 'lion'
+animal = tuple(animal2)
+print(animal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
