@@ -646,8 +646,6 @@ for x in letters: #assign x to all items in letters
     break #stop assigning items when x is c
   print(x) #print items already assigned before x is c
 
-'''use continue and else statements just like in while loops
--but else statement will not be executed if loop is stopped by a break statement'''
 
 '''to loop through a set of code a set no of times
 use range() function- reteurns a sequence of number by defualt from 0, adding 1 in crements until the number specified'''
@@ -666,21 +664,85 @@ for x in range(2, 23, 3): #for loop iterates over numbers 2-23 going up in 3 and
 Loop inside loop- inner loop will be executed once for each iteration of outer loop'''
 numbers = [2,89,3]
 letters = ["a", "b", "c", 'd']
-for x in numbers:
-    for y in letters:
-        print(x,y)
+for x in numbers: #assign x to each item in numbers lists
+    for y in letters: # assign y to each item in letters lists,
+        print(x,y) #for each item in numbers list assigned to x, assign each x to each item in y and print both 
+        
+
+'''use pass, continue and else statements just like in while loops
+-but else statement will not be executed if loop is stopped by a break statement'''
+
+#Python functions
+'''block of code -only runs when called. Can pass data/parameters into function. can return data as a result.
+can pass info into function as arguments- use comma to serate each arguments in more than one'
+parameter and argument can be used for the same thing: information that are passed into a function.
+From a function's perspective: parameter is the variable listed inside the parentheses in the function definition.
+An argument is the value that is sent to the function when it is called.'''
+
+def intro(name): #functionname(parameter)
+  print(name + " Oye") #when function is called, print code will work and the name parameter from the function must be specified when its called
+
+intro("kenny") #calling the function with the name argument specified as kenny so print(kenny + " Oye")
+intro("Tobias")
+
+def intro2(name1, name2): #no of parameters must match no of arguements or you get error
+  print(name1 + name2) 
+intro2("kenny", ' oye') 
+
+'''If no of arguments passed into function unknown, 
+use arbitrary argument- *arg- add * before the parameter when defining function
+so function can have tuple of arguments, and can access the items using index'''
+def intro3(*name): #no of parameters must match no of arguements or you get error
+  print('i am ' + name[2]) #use 3rd item in intro arguement
+intro3("kenny", ' timmy', 'daisy') 
+
+'''can use keyword arguments-kwargs -key= value syntax so that the order of arguments don't matter'''
+def funct(name3, name2, name1): #multiple parameters
+  print("I am " + name3) #specified parameter using keyword to access
+
+funct(name1 = "tam", name2 = "Tom", name3 = "tim") #arguements in different order to parameter but with key value so value be accessed with key
+
+'''Arbitrary keyword argument -**kwargs, if no of keyword arguments unknown'''
+def funct(**name): #multiple parameters
+  print("I am " + name['name2']) #specified parameter using keyword to access
+
+funct(name1 = "tam", name2 = "Tom", name3 = "tim")
+
+'''can set a default parameter for when function called without argument'''
+
+def functi(name = 'kenny'): #default parameter set
+  print("I am " + name) 
+
+functi("tam") #argument present so will be used
+functi() #argument not present so default parameter -kenny will be used
+
+'''can send any data type into function as an arguemnt and it will be treated the same as normal like outside a function'''
+
+def fruits(fruitnames): #parameter here is a list
+  for x in fruitnames: #use for loop to iterate over the list like normal 
+    print(x)
+fruitnames = ["apple", "banana", "cherry"]
+fruits(fruitnames)
+
+'''can return values using return statement'''
+def my_function(x): 
+  return 5 * x #multiplies the argument by 5 and return the value
+
+print(my_function(3))
 
 
+'''use the pass statement as normal if the function has no content'''
 
+def tri_recursion(k):
+  if(k > 0):
+    result = k + tri_recursion(k - 1)
+    print(result)
+  else:
+    result = 0
+  return result
 
-
-
-
-
-
-
-
-
+print("\n\nRecursion Example Results")
+tri_recursion(6)
 
 
 
