@@ -980,6 +980,7 @@ boat1 = Boat("Ibiza", "Touring 20")
 for x in (car1, boat1): #use for loop to iterate over each class using the same method
   x.move() #executes each class move() method
 
+'''Inheritance class polymorphism- classes with child classes with same method name'''
 
 class Vehicle: #parent class
   def __init__(vehiclename, brand, model):
@@ -988,7 +989,7 @@ class Vehicle: #parent class
   def move(message):
     print("Move!")
 
-class Car(Vehicle): #child class with no content 
+class Car(Vehicle): #child class with no content -inherits everything from parent
   pass
 
 class Boat(Vehicle): #child class with a different method but same name as parent class method
@@ -1002,3 +1003,55 @@ for x in (car1, boat1): #iterates over each child class
   print(x.brand) #prints value for brand
   print(x.model) #prints value for model
   x.move() #executes each class move() method
+
+#Python Scope
+'''local and global variable- see python variables section at beginning for more info'''
+
+
+#Python Modules
+'''same as a code binary- file with a set of functions you want to execute/include in your code
+can create a module by saving code in a new file.py and importing it in your current code 
+-created a new module named tutmodule.py'''
+'''Module function 
+-created a simple greeting function in tutmodules.py
+def hi(names):
+    print ('hello' + name)'''
+
+import tutmodules #use import statement to acess module
+tutmodules.hi('kenny') #use modulename.functionname to call module function
+
+'''Variables in modules- can be any type- list, dict, array, object etc
+-created a simple dict in tutmodules.py -make sure to close and save module after editing
+pets = {'dog': 'bobby','cat': 'tommy', 'goat': 'robby', 'cat': 'tabby' }'''
+
+import tutmodules
+a = tutmodules.pets["cat"] #access value in dict using key
+print(a)
+
+'''Renaming a module'''
+import tutmodules as tutmodule #import oldmodulename as newmodulename
+a = tutmodule.pets['cat'] #use new module name
+print(a)
+
+'''Built in Modules
+eg platform module'''
+import platform
+x = platform.system() #code contains which operating system you are working on
+print(x)
+
+'''To list all names of functions/variables in a module
+use dir() function'''
+import tutmodules
+x = dir(tutmodules)
+print(x)
+
+'''import only parts of a module 
+using from keyword'''
+from tutmodules import pets
+print(pets['cat'])
+
+
+
+
+
+
