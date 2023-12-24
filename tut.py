@@ -912,21 +912,21 @@ print(next(myite)) #print next value etc use multiple print to print each value
 
 '''can use for loop through iterator- 
 for loop creates an iterator onj and executes the next() method for each loop'''
-for x in myite:
+for x in myite: #loops through and prints each value
    print(x)
 
-'''to create and object/class iterator '''
+'''to create an object/class iterator '''
 class myno:
-   def __iter__(firstno):
-      firstno.a = 1
-      return firstno
+   def __iter__(firstno): #create an iter method
+      firstno.a = 1 #defines the a new parameter 1 and assign a variable to it
+      return firstno #must always return the iterator object itself 
    def __next__(firstno):
-      x = firstno.a
-      firstno.a += 1
+      x = firstno.a #create an object x and assign 
+      firstno.a += 1 #when next__() method is executed, the first value 1 will be added to 1 and a new varibale created
       return x
-myclass = myno()
-myiter = iter(myclass)
-print(next(myiter)) #print first value of tuple
+myclass = myno() #create new object
+myiter = iter(myclass) #iterate over the object
+print(next(myiter)) #print first value of the object
 print(next(myiter))
 
 '''use stopIeration statement to prevent iteration from going on forever
@@ -937,13 +937,68 @@ class myno2:
       firstno.a = 1
       return firstno
    def __next__(firstno):
-      if firstno.a <= 20:
+      if firstno.a <= 20: #adds 1 only if x is less than or equal to 20
         x = firstno.a
         firstno.a += 1
         return x
       else:
-         raise StopIteration
+         raise StopIteration 
 myclass2 = myno2()
 myiter = iter(myclass2)
-for x in myiter:
+for x in myiter: #use for loop to iterate over
    print(x)
+
+
+#Python Polymorphism
+'''megthods/functions/operators with same name'''
+name = 'kenny'
+pets = ('dog', 'cat', 'pig')
+names = {'dog': 'bobby','cat': 'tommy', 'goat': 'robby', 'cat': 'tabby' }
+
+print(len(name)) #len function on string returns no of string characters
+print(len(pets)) #len function on tuple returns no of items in tuple
+print(len(names)) #len function on dict returns no of key/value pairs in dict
+
+'''Class polymorphism- have multiple classess with same method name'''
+
+class Car:
+  def __init__(carname, brand, model):
+    carname.brand = brand
+    carname.model = model
+  def move(message):
+    print("Drive!")
+car1 = Car("toyota", "corolla") #create obj with class values for class variable
+
+class Boat:
+  def __init__(boatname, brand, model):
+    boatname.brand = brand
+    boatname.model = model
+  def move(message): #same method name as in car class
+    print("Sail!")     
+boat1 = Boat("Ibiza", "Touring 20") 
+
+for x in (car1, boat1): #use for loop to iterate over each class using the same method
+  x.move() #executes each class move() method
+
+
+class Vehicle: #parent class
+  def __init__(vehiclename, brand, model):
+    vehiclename.brand = brand
+    vehiclename.model = model
+  def move(message):
+    print("Move!")
+
+class Car(Vehicle): #child class with no content 
+  pass
+
+class Boat(Vehicle): #child class with a different method but same name as parent class method
+  def move(message): #method overwrites parents method
+    print("Sail!")
+
+car1 = Car("Toyota", "corolla") 
+boat1 = Boat("Ibiza", "Touring 20") 
+
+for x in (car1, boat1): #iterates over each child class
+  print(x.brand) #prints value for brand
+  print(x.model) #prints value for model
+  x.move() #executes each class move() method
