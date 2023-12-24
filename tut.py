@@ -776,6 +776,66 @@ print(transport)
 '''access array/list same way as you do list -.append, using index, for loop etc'''
 
 
+#Python Classes and Objects
+'''Almost everything in Python is an Object- with properties and methods.
+Class- an object constructor'''
+'''Create a class'''
+class m: #use class constructor to create a class
+   x = 5
+print(m) #this tells you what m is but not the content
+
+'''create an object'''
+newobj = m() #assigning a new varibale value to a class, makes the variable an object
+print(newobj.x) #prints content of class 
+
+'''To assign values to object properties or other operations necessary when object is called
+use _init_() function- always executed when class is initiated'''
+ #the first parameter aka (self)-references current instance of the class, used to acess variables belonging to the class
+class Person:
+   def __init__(self, name, age): #double underscore for init. use this to assign variables to class
+     self.names = name #assign a variable (using 1st parameter.variablename) to the other parameters in the init fucntion
+     self.ages = age
+person1 = Person("kenny", 23) #new object created- assigns variable to name/age parameter in Person class
+
+print(person1.names) #use obj name + variable name without 1st parameter to access the class parameters
+print(person1.ages)
+
+'''to control what should be returned when class object is represented as a string
+use _str_() function'''
+
+print(person1) #printing person1 object without variable name will describe person as an object only
+
+class Person2:
+  def __init__(self, name, age):
+    self.names = name
+    self.ages = age
+
+  def __str__(self): 
+    return f"{self.names}({self.ages})" #this will allow the values to be printed when obj is called without variables
+
+person2 = Person2("kenny", 23)
+print(person2) #values of object variables will be printed even though obj is without variable name
+
+'''Objects can be functions- 
+functions that belong to objects are object methods'''
+class Person3:
+    def __init__(me, name, age):
+        me.names = name
+        me.ages = age
+    def myfunc(you): #function that is executed on the person3 object. 1st parameter of obj function must be used to access variable in class
+       print('hi my name is ' + you.names) 
+person3 = Person3('kenny', 23)
+person3.myfunc()
+
+'''Modify object properties'''
+person3.names = 'tom' #changes name variable
+person3.myfunc()
+del person3.names #delete specific obj variable
+del person3 #delete whole obj
+#person3.myfunc()
+'''use pass staement if class is empty'''
+
+
 
 
 
