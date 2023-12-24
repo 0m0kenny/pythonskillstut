@@ -833,17 +833,69 @@ person3.myfunc()
 del person3.names #delete specific obj variable
 del person3 #delete whole obj
 #person3.myfunc()
+
 '''use pass staement if class is empty'''
 
+#Python Inheritance
+'''inheritance allows to define a class that inherits all methods and properties from another class
+Base/Parent Class - class being inherited
+Derived/Child Class- class that inherits'''
 
+class AboutMe: #create parent class as normal
+    def __init__(me, name, age):
+        me.names = name
+        me.ages = age
+    def reveal(intro):
+       print('hi my name is ' + intro.names, 'and i am', intro.ages, 'years old') 
+hi = AboutMe('kenny', 23)
+hi.reveal()
 
+class AboutYou(AboutMe): #create child class by using parent class as parameter
+   pass  #can pass if you have no content
 
+'''child class can have same property as parent'''
+#class AboutYou(AboutMe):
+hi = AboutYou('Tom', 50) #assign object using variable of AboutYou class inherited from AboutMe class
+hi.reveal()
 
+'''use __init__function on child class'''
+class AboutYou(AboutMe):
+   def __init__(you, yourname, yourage): #can create new init function as normal - will overwrite parent init function. 
+      AboutMe.__init__(you, yourname, yourage) #add this code (parent.__init__) if you want to keep parent init function 
+x = AboutYou('Tom', 50)
+x.reveal()      
 
+'''to make child class inherit all porperties and methods from parent
+use super().__init__() function'''
+class AboutYou(AboutMe):
+   def __init__(you, yourname, yourage):
+      super().__init__(yourname, yourage) #no need to use name of parents 1st parameter as it will be inherited automatically
+x = AboutYou('Tom', 50)
+x.reveal() 
 
+'''can add extra properties to class class'''
+class AboutYou(AboutMe):
+   def __init__(you, yourname, yourage):
+      super().__init__(yourname, yourage) 
+      you.ddmmyyyy = 28031998 #create new parameter variable and assign value to it
+x = AboutYou('Tom', 50)
+print(x.ddmmyyyy) 
 
+'''can pass the new parameter into the child class when creating it'''
+class AboutYou(AboutMe):
+   def __init__(you, yourname, yourage, yourDOB): #add extra parameter
+      super().__init__(yourname, yourage) 
+      you.ddmmyyyy = yourDOB #assign new parameter to a variable as normal
+x = AboutYou('Tom', 50, 28031998) #add value for new parameter inside object
+print(x.ddmmyyyy) 
 
-
-
-
+'''can add a new method in child class'''
+class AboutYou(AboutMe):
+   def __init__(you, yourname, yourage, yourDOB): 
+      super().__init__(yourname, yourage) 
+      you.ddmmyyyy = yourDOB 
+   def revealyou(yourintro):
+       print('hi my name is ' + yourintro.names, 'and i am', yourintro.ages, 'years old. i was born on', yourintro.ddmmyyyy)     
+x = AboutYou('Tom', 50, 28031998) 
+x.revealyou() 
 
