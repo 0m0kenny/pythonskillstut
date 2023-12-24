@@ -894,8 +894,56 @@ class AboutYou(AboutMe):
    def __init__(you, yourname, yourage, yourDOB): 
       super().__init__(yourname, yourage) 
       you.ddmmyyyy = yourDOB 
-   def revealyou(yourintro):
+   def revealyou(yourintro): #methodin child class with the same name as a function in parent class will overwrite parent method
        print('hi my name is ' + yourintro.names, 'and i am', yourintro.ages, 'years old. i was born on', yourintro.ddmmyyyy)     
 x = AboutYou('Tom', 50, 28031998) 
 x.revealyou() 
 
+
+#Python Iterators
+'''objects with countable no of values and can traverse through all values 
+-implements iterator protocols -_iter_() and _next_() methods
+-iterable objects -list, tuples, strings etc contains iterables that you can get an iterator from using iter()
+(iterating over a string will print each character)'''
+name = ('kenny', 20, 50)
+myite = iter(name) #return an iterator from a tuple
+print(next(myite)) #print first value of tuple
+print(next(myite)) #print next value etc use multiple print to print each value
+
+'''can use for loop through iterator- 
+for loop creates an iterator onj and executes the next() method for each loop'''
+for x in myite:
+   print(x)
+
+'''to create and object/class iterator '''
+class myno:
+   def __iter__(firstno):
+      firstno.a = 1
+      return firstno
+   def __next__(firstno):
+      x = firstno.a
+      firstno.a += 1
+      return x
+myclass = myno()
+myiter = iter(myclass)
+print(next(myiter)) #print first value of tuple
+print(next(myiter))
+
+'''use stopIeration statement to prevent iteration from going on forever
+add it to the _next() method'''
+
+class myno2:
+   def __iter__(firstno):
+      firstno.a = 1
+      return firstno
+   def __next__(firstno):
+      if firstno.a <= 20:
+        x = firstno.a
+        firstno.a += 1
+        return x
+      else:
+         raise StopIteration
+myclass2 = myno2()
+myiter = iter(myclass2)
+for x in myiter:
+   print(x)
